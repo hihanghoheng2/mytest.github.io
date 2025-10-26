@@ -1,55 +1,48 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Utama</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #45a049;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Page</title>
+  <style>
+    /* Minimal, safe CSS */
+    :root { --bg: #f7f7f9; --card: #ffffff; --accent: #3b82f6; --text: #111827; }
+    html,body { height:100%; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); }
+    .wrap { max-width:900px; margin:48px auto; padding:24px; background:var(--card); box-shadow:0 6px 18px rgba(15,23,42,0.06); border-radius:12px; }
+    header h1 { margin:0 0 6px 0; font-size:1.6rem; }
+    header p { margin:0 0 18px 0; color: #6b7280; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:8px; background:var(--accent); color:white; text-decoration:none; font-weight:600; }
+    footer { margin-top:22px; color:#6b7280; font-size:0.9rem; }
+    .center { text-align:center; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Selamat Datang di Website Saya</h1>
+  <main class="wrap">
+    <header class="center">
+      <h1>Welcome — Simple Working Page</h1>
+      <p>A minimal HTML example that should work everywhere (local & GitHub Pages).</p>
     </header>
-    <main>
-        <p>Ini adalah halaman utama sederhana menggunakan HTML dan CSS.</p>
-        <p>Klik <a href="#">di sini</a> untuk menuju ke halaman lain.</p>
-    </main>
-    <footer>
-        &copy; 2025 | Dibuat dengan ♥ oleh L H
+
+    <section>
+      <p>This page includes a small interactive bit below so you can confirm JavaScript runs:</p>
+      <div class="center">
+        <button id="timeBtn" class="btn">Show current time</button>
+        <p id="timeOutput" aria-live="polite" style="margin-top:12px"></p>
+      </div>
+    </section>
+
+    <footer class="center">
+      &copy; <span id="year"></span> — Simple Page
     </footer>
+  </main>
+
+  <script>
+    // Very small, safe JavaScript (will run on both local file and GitHub Pages)
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('timeBtn').addEventListener('click', function () {
+      const t = new Date().toLocaleString();
+      document.getElementById('timeOutput').textContent = 'Current local time: ' + t;
+    });
+  </script>
 </body>
 </html>
